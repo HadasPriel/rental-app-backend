@@ -1,5 +1,6 @@
 import express from 'express'
 import cors from 'cors'
+const path = require('path')
 
 import { rentalService } from './services/rental.service.js'
 
@@ -52,7 +53,9 @@ app.delete('/api/rental/:rentalId', async (req, res) => {
 })
 
 
-
+app.get('/**', (req, res) => {
+    res.sendFile(path.join(__dirname, 'public', 'index.html'))
+})
 
 const port = process.env.PORT || 3030
 app.listen(port, () =>
