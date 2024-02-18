@@ -8,6 +8,8 @@ const app = express()
 app.use(express.static('public'))
 app.use(express.json())
 
+
+const __dirname = path.dirname(__filename)
 if (process.env.NODE_ENV === 'production') {
     app.use(express.static(path.resolve(__dirname, 'public')))
 } else {
